@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         glue = "com/zerobank/step_defs",
         plugin = {"json:target/cucumber.json"},
         dryRun = false,
-        tags = ""
+        tags = "@negativeLogin"
 )
 public class CukesRunner {
 }
