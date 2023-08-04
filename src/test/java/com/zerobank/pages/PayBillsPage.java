@@ -41,4 +41,16 @@ public class PayBillsPage extends BasePage{
         return BrowserUtils.getText(successMessage);
     }
 
+    public String getAmountErrorMessage(){
+        return amountInputBox.getAttribute("validationMessage");
+    }
+
+    public String getDateErrorMessage(){
+        return dateInputBox.getAttribute("validationMessage");
+    }
+
+    public boolean isDateBoxEmpty(){
+        return dateInputBox.getAttribute("value").isEmpty();
+    }
+
 }

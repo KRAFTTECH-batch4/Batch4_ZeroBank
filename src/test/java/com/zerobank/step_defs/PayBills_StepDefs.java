@@ -42,4 +42,23 @@ public class PayBills_StepDefs {
         String expected = "The payment was successfully submitted.";
         Assert.assertEquals(expected,actual);
     }
+
+    @Then("Validate that error message appears on the amount box")
+    public void validate_that_error_message_appears_on_the_amount_box() {
+        String expected = "Please fill out this field.";
+        String actual = payBillsPage.getAmountErrorMessage();
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Then("Validate that error message appears on the date box")
+    public void validate_that_error_message_appears_on_the_date_box() {
+        String expected = "Please fill out this field.";
+        String actual = payBillsPage.getDateErrorMessage();
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Then("Validate that date box is still empty")
+    public void validate_that_date_box_is_still_empty() {
+        Assert.assertTrue(payBillsPage.isDateBoxEmpty());
+    }
 }
