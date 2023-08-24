@@ -54,4 +54,8 @@ public class Login_StepDefs {
         Assert.assertEquals(expected,actual);
     }
 
+    @When("The user logins with valid credentials {string} and {string}")
+    public void theUserLoginsWithValidCredentialsAnd(String username, String password) {
+        loginPage.login(username, password);
+    }
 }

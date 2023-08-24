@@ -14,15 +14,15 @@ public class AccountActivityPage extends BasePage{
 
     @FindBy(xpath = "//thead//th")
     private List<WebElement> columnElements;
-
+    Select select = new Select(dropDownMenu);
     public String getDefaultSelectedElementText(){
-        Select select = new Select(dropDownMenu);
+        //Select select = new Select(dropDownMenu);
         WebElement firstSelectedOption = select.getFirstSelectedOption();
         return BrowserUtils.getText(firstSelectedOption);
     }
 
     public List<String> getAllTextsInDropDownMenu(){
-        Select select = new Select(dropDownMenu);
+       // Select select = new Select(dropDownMenu);
         List<WebElement> options = select.getOptions();
         List<String> elementsText = BrowserUtils.getElementsText(options);
         return elementsText;

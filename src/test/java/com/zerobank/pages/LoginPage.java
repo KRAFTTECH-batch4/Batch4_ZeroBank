@@ -32,6 +32,11 @@ public class LoginPage extends BasePage {
         BrowserUtils.clickWithJS(loginButton);
     }
 
+    public void login(String username, String password){
+        BrowserUtils.sendKeys(loginBox, username);
+        BrowserUtils.sendKeys(passwordBox, password);
+        BrowserUtils.clickWithJS(loginButton);
+    }
     public void fillUsernameAndPassword(String s1, String s2){
         BrowserUtils.sendKeys(loginBox, s1);
         BrowserUtils.sendKeys(passwordBox, s2);
@@ -44,5 +49,6 @@ public class LoginPage extends BasePage {
     public String getWarningElementText(){
         return BrowserUtils.getText(warningMessage);
     }
+
 
 }
