@@ -1,6 +1,8 @@
 package com.zerobank.pages;
 
 import com.zerobank.utilities.BrowserUtils;
+import com.zerobank.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,6 +22,9 @@ public class PayBillsPage extends BasePage{
 
     @FindBy(css = "div#alert_content > span")
     private WebElement successMessage;
+
+    @FindBy(css = "div#alert_content")
+    private WebElement newPayeeSuccessMessage;
 
     public void sendAmount(String str){
         BrowserUtils.sendKeys(amountInputBox, str);
@@ -51,6 +56,20 @@ public class PayBillsPage extends BasePage{
 
     public boolean isDateBoxEmpty(){
         return dateInputBox.getAttribute("value").isEmpty();
+    }
+
+    public void sendData(String amount, String date, String desc) {
+        BrowserUtils.sendKeys(amountInputBox, amount);
+        BrowserUtils.sendKeys(dateInputBox, date);
+        BrowserUtils.sendKeys(descriptionBox, desc);
+    }
+
+    public void goToSubMenu(String subMenu) {
+        BrowserUtils.clickWithJS(Driver.get().findElement(By.xpath("//a[.='" + subMenu + "']")));
+    }
+
+    public String getNewPayeeSuccessMessage() {
+        return BrowserUtils.getText(newPayeeSuccessMessage);
     }
 
 }

@@ -8,7 +8,10 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com/zerobank/step_defs",
-        plugin = {"json:target/cucumber.json"},
+        plugin = {
+                "json:target/cucumber.json",
+                "rerun:target/rerun.txt"
+        },
         dryRun = false,
         tags = "@accountActivity"
 )

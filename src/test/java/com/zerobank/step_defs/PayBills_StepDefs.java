@@ -61,4 +61,14 @@ public class PayBills_StepDefs {
     public void validate_that_date_box_is_still_empty() {
         Assert.assertTrue(payBillsPage.isDateBoxEmpty());
     }
+
+    @When("Enter {string}, {string} and {string}")
+    public void enter_and(String amount, String date, String description) {
+        payBillsPage.sendData(amount,date,description);
+    }
+
+    @Given("Go to {string} section")
+    public void go_to_section(String string) {
+        payBillsPage.goToSubMenu(string);
+    }
 }

@@ -14,15 +14,18 @@ public class AccountActivityPage extends BasePage{
 
     @FindBy(xpath = "//thead//th")
     private List<WebElement> columnElements;
-    Select select = new Select(dropDownMenu);
+
+    @FindBy(xpath = "//a[.='Find Transactions']")
+    private WebElement findTransactionsButton;
+
     public String getDefaultSelectedElementText(){
-        //Select select = new Select(dropDownMenu);
+        Select select = new Select(dropDownMenu);
         WebElement firstSelectedOption = select.getFirstSelectedOption();
         return BrowserUtils.getText(firstSelectedOption);
     }
 
     public List<String> getAllTextsInDropDownMenu(){
-       // Select select = new Select(dropDownMenu);
+        Select select = new Select(dropDownMenu);
         List<WebElement> options = select.getOptions();
         List<String> elementsText = BrowserUtils.getElementsText(options);
         return elementsText;
@@ -31,5 +34,9 @@ public class AccountActivityPage extends BasePage{
     public List<String> getColumnNames(){
         List<String> elementsText = BrowserUtils.getElementsText(columnElements);
         return elementsText;
+    }
+
+    public void tapOnFindTransactions() {
+        BrowserUtils.clickWithJS(findTransactionsButton);
     }
 }
